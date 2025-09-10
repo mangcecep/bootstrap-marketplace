@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Place XI PPLG 25 / 26</title>
+    <title>Cart | Market Place XI PPLG 25 / 26</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -29,39 +29,26 @@
                 <a href="/cart.html" class="btn btn-primary position-relative">
                     <i class="fa-solid fa-cart-plus"></i>
                     <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
-                        id="cart">
-                    </span>
+                        id="cart"></span>
                 </a>
             </div>
         </div>
     </nav>
 
     <div class="container my-3">
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/banner/banner_1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/banner/banner_2.webp" style="height: 50%;" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img style="height: 50%;" src="./img/banner/banner_3.jpg" class="d-block w-100 h-50" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <div class="mt-5">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Sub Total</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
-    </div>
-
-    <div class="container p-4">
-        <div class="row" id="list-product"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
