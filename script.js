@@ -110,6 +110,7 @@ function addProduct(id) {
                 </div>
             </div>`).join(",")
     listProduct.innerHTML = listProductMapping.replaceAll(",", " ")
+    localStorage.setItem("product", JSON.stringify(product))
 
     if (cart.length === 0) {
         cart.push({
@@ -120,17 +121,33 @@ function addProduct(id) {
             stock: 1,
             img_url: productFilter.img_url
         })
-    } else {
-        cart?.some(value => value?.id == productFilter?.id) ? cart.map(p => {
-            if (p.id == productFilter?.id) {
-                return {
-                    ...p,
-                    stock: p.stock + 1
-                }
-            }
 
-            return p
-        }) : cart.push({
+        localStorage.setItem("cart", JSON.stringify(cart))
+        cartNavbar.innerHTML = `${cart.length}`
+        return
+    }
+
+    if (cart.length > 0) {
+        const isAvailable = cart?.some(value => value?.id == productFilter?.id)
+        if (isAvailable) {
+
+            cart = cart?.map(p => {
+                if (p.id == productFilter?.id) {
+                    return {
+                        ...p,
+                        stock: p.stock + 1
+                    }
+                }
+
+                return p
+            })
+
+            localStorage.setItem("cart", JSON.stringify(cart))
+            cartNavbar.innerHTML = `${cart.length}`
+            return
+        }
+
+        cart.push({
             id: productFilter.id,
             product_name: productFilter.product_name,
             ram: productFilter.ram,
@@ -138,10 +155,8 @@ function addProduct(id) {
             stock: 1,
             img_url: productFilter.img_url
         })
+
+        localStorage.setItem("cart", JSON.stringify(cart))
+        cartNavbar.innerHTML = `${cart.length}`
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart))
-    localStorage.setItem("product", JSON.stringify(product))
-
-    cartNavbar.innerHTML = `${cart.length}`
 }
